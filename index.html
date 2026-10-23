@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haldiram Bhujiawala | Anisabad, Patna (Pure Veg Restaurant & Sweets)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#8B0000',
+                            redDark: '#660000',
+                            gold: '#D4AF37',
+                            goldHover: '#B89428',
+                            cream: '#FDFBF7',
+                            creamDark: '#F4EFE6'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-brand-cream text-gray-800 font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-redDark text-brand-gold text-xs font-medium py-2 px-4 text-center tracking-wide flex justify-center items-center gap-2">
+        <span>🌱 100% Pure Vegetarian Family Restaurant</span>
+        <span class="hidden md:inline">•</span>
+        <span class="hidden md:inline">📍 Anisabad Golambar, Patna</span>
+        <span class="hidden md:inline">•</span>
+        <span>🕒 Open Daily: 8:00 AM – 10:30 PM</span>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col">
+                <span class="text-2xl sm:text-3xl font-serif font-black tracking-tight text-brand-red">HALDIRAM'S</span>
+                <span class="text-xs tracking-[0.3em] font-semibold text-brand-gold uppercase -mt-1">BHUJIAWALA • ANISABAD</span>
+            </a>
+
+            <!-- Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
+                <a href="#menu" class="hover:text-brand-red transition">Digital Menu</a>
+                <a href="#combos" class="hover:text-brand-red transition">Combos</a>
+                <a href="#catering" class="hover:text-brand-red transition">Party Catering</a>
+                <a href="#location" class="hover:text-brand-red transition">Contact & Location</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Phone Call Link with your actual number -->
+                <a href="tel:+919334110216" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand-red bg-red-50 hover:bg-red-100 py-2 px-3.5 rounded-full transition">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                    <span>+91 9334110216</span>
+                </a>
+
+                <!-- Floating Cart Trigger Button -->
+                <button onclick="toggleCartDrawer()" class="relative bg-brand-red hover:bg-brand-redDark text-white p-2.5 rounded-full shadow-md transition transform active:scale-95 flex items-center justify-center">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-counter" class="absolute -top-1.5 -right-1.5 bg-brand-gold text-brand-redDark font-black text-xs w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-amber-50/70 to-brand-cream overflow-hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300 text-brand-redDark text-xs font-semibold uppercase tracking-wider">
+                        ✨ Patna's Authentic Taste Destination
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Authentic Flavors, <br>
+                        <span class="text-brand-red italic font-serif">Pure Delights</span> in Anisabad.
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+                        From sizzling North Indian Curries and street-style Chana Bhature to traditional sweets, dosas, and quick combos. Handcrafted fresh every single day.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#menu" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-red hover:bg-brand-redDark text-white font-semibold rounded-xl shadow-lg shadow-red-900/20 transition transform active:scale-95">
+                            <span>Browse Menu & Order</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/919334110216?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20food%20from%20Haldiram%20Bhujiawala%20Anisabad." target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-sm transition">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual Showcase -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-white p-4 rounded-3xl shadow-2xl border border-amber-100 relative">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800" alt="Special Indian Thali" class="w-full h-80 object-cover rounded-2xl shadow-inner">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-amber-100 flex items-center gap-3">
+                            <div class="bg-amber-100 p-3 rounded-xl text-brand-red">
+                                <i data-lucide="award" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Specialty</p>
+                                <p class="text-sm font-bold text-gray-800">Deluxe Thali & Chaat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN INTERACTIVE MENU SECTION -->
+    <section id="menu" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <h2 class="text-xs font-bold text-brand-gold uppercase tracking-[0.2em] mb-1">Dine-in & Takeaway</h2>
+            <h3 class="text-3xl sm:text-4xl font-serif font-black text-gray-900">Our Signature Menu</h3>
+            <p class="text-gray-500 text-sm mt-2">Prices reflect the official in-store menu of Anisabad outlet.</p>
+            
+            <!-- Real-time Search Box -->
+            <div class="mt-6 relative max-w-md mx-auto">
+                <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="menu-search" oninput="handleMenuSearch()" placeholder="Search Samosa, Paneer, Dosa, Thali..." 
+                       class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-gold text-sm transition">
+            </div>
+        </div>
+
+        <!-- Category Scrollable Bar -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-8" id="category-pills"></div>
+
+        <!-- Menu Grid -->
+        <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Thali & Combos Spotlight -->
+    <section id="combos" class="bg-brand-creamDark py-16 border-y border-amber-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-gray-900">Popular Combos & Thalis</h2>
+                <p class="text-gray-600 text-sm mt-1">Pocket-friendly full meals curated for busy lunch & dinner hours.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-red-100 text-brand-red text-xs font-bold rounded-full">Bestseller Thali</span>
+                            <span class="text-xl font-black text-gray-900">₹215</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Deluxe Thali</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                            2 Pcs Butter Roti, Chana Masala or Rajma, Dal Makhani, Paneer Sabzi, Rice, Fresh Raita, Pickle, and Salad.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Deluxe Thali', 215)" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-brand-redDark font-semibold text-sm rounded-xl transition flex justify-center items-center gap-2">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Add to Order
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">Authentic Taste</span>
+                            <span class="text-xl font-black text-gray-900">₹195</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Amritsari Thali</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                            2 Pcs Stuffed Aloo Kulcha, authentic Chana Masala, Chilled Raita, Mixed Pickle, and Fresh Cut Salad.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Amritsari Thali', 195)" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-brand-redDark font-semibold text-sm rounded-xl transition flex justify-center items-center gap-2">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Add to Order
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Quick Lunch</span>
+                            <span class="text-xl font-black text-gray-900">₹160</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Rajma + Rice + Chanch</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                            Classic homestyle Punjabi Rajma served over steaming Basmati rice with a glass of spiced Chanch (buttermilk).
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Rajma + Rice + Chanch', 160)" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-brand-redDark font-semibold text-sm rounded-xl transition flex justify-center items-center gap-2">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Add to Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Catering / Party Booking Form -->
+    <section id="catering" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-100">
+            <div class="text-center max-w-lg mx-auto mb-8">
+                <span class="text-xs uppercase font-bold tracking-widest text-brand-gold">Host Your Gathering</span>
+                <h3 class="text-3xl font-serif font-black text-gray-900 mt-1">Party & Bulk Orders</h3>
+                <p class="text-gray-500 text-sm mt-2">Direct inquiry to <strong>+91 9334110216</strong> for birthdays & gatherings in Patna.</p>
+            </div>
+
+            <form onsubmit="handlePartyInquiry(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Your Full Name</label>
+                        <input type="text" id="party-name" required placeholder="Ex. Rahul Kumar" class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">WhatsApp Mobile Number</label>
+                        <input type="tel" id="party-phone" required placeholder="Ex. 9876543210" class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Event Date</label>
+                        <input type="date" id="party-date" required class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Number of Guests</label>
+                        <input type="number" id="party-guests" min="5" placeholder="Ex. 25" required class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Specific Food Requirements / Notes</label>
+                    <textarea id="party-notes" rows="3" placeholder="Tell us about food preferences (Sweets, Chaat counter, Chinese, Thali, etc.)" class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-brand-red hover:bg-brand-redDark text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i> Send Inquiry via WhatsApp to +91 9334110216
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Location & Contact Details -->
+    <section id="location" class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="space-y-6">
+                <span class="text-brand-gold uppercase text-xs tracking-widest font-bold">Visit Us</span>
+                <h3 class="text-3xl sm:text-4xl font-serif font-black">Haldiram Bhujiawala Anisabad</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Centrally located near Anisabad Golambar, easily accessible from Bypass Road and Phulwari Sharif. Ample space for family dine-in with an exclusive takeaway counter for sweets and snacks.
+                </p>
+
+                <div class="space-y-4 text-sm text-gray-300">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+                        <span>Near Golambar / Bypass Road, Anisabad, Patna, Bihar - 800002</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="clock" class="w-5 h-5 text-brand-gold shrink-0"></i>
+                        <span>Everyday: 08:00 AM – 10:30 PM (No weekly off)</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-5 h-5 text-brand-gold shrink-0"></i>
+                        <a href="tel:+919334110216" class="hover:text-brand-gold transition">+91 9334110216 (Counter & Orders)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map View Placeholder -->
+            <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-xl border border-gray-700 h-72 sm:h-80 flex flex-col items-center justify-center text-center p-6">
+                <i data-lucide="map" class="w-12 h-12 text-brand-gold mb-3 opacity-80"></i>
+                <h4 class="text-lg font-bold text-white">Google Maps Location</h4>
+                <p class="text-xs text-gray-400 max-w-xs mt-1 mb-4">Click below to open exact directions directly on your smartphone navigation.</p>
+                <a href="https://maps.google.com/?q=Haldiram+Bhujiawala+Anisabad+Patna" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-brand-gold text-brand-redDark font-bold text-xs rounded-xl hover:bg-amber-400 transition flex items-center gap-2">
+                    <i data-lucide="navigation" class="w-4 h-4"></i> Open in Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-8 text-center text-xs border-t border-gray-800">
+        <p>© 2025 Haldiram Bhujiawala (Anisabad Outlet, Patna). WhatsApp Orders: +91 9334110216.</p>
+    </footer>
+
+    <!-- SLIDE-OVER CART DRAWER -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-5 border-b border-gray-200 flex items-center justify-between bg-brand-cream">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-red"></i>
+                <h3 class="font-bold text-base text-gray-800">Your Current Order</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-1.5 rounded-lg hover:bg-gray-200 text-gray-500 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+
+        <div class="p-5 border-t border-gray-100 bg-gray-50 space-y-3">
+            <div class="flex justify-between items-center text-sm font-semibold text-gray-700">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="text-base font-black text-brand-red">₹0</span>
+            </div>
+            <p class="text-[11px] text-gray-500">Orders will be forwarded to our WhatsApp counter (+91 9334110216).</p>
+            <button onclick="submitOrderViaWhatsApp()" id="checkout-btn" disabled class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Send Order to WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Drawer Backdrop -->
+    <div id="cart-backdrop" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // TARGET WHATSAPP PHONE NUMBER (Integrated)
+        const RESTAURANT_WHATSAPP_NUMBER = "919334110216";
+
+        // Official Menu Data from Restaurant Images
+        const menuData = [
+            // Indian Snacks & Chaat
+            { id: 1, name: "Samosa", price: 15, category: "Chaat & Snacks" },
+            { id: 2, name: "Dal Kachori", price: 18, category: "Chaat & Snacks" },
+            { id: 3, name: "Onion Kachori", price: 35, category: "Chaat & Snacks" },
+            { id: 4, name: "Aloo Tikki with Choley", price: 105, category: "Chaat & Snacks" },
+            { id: 5, name: "Chole Bhature", price: 140, category: "Chaat & Snacks" },
+            { id: 6, name: "Puri Subzi with Raita & Jalebi", price: 130, category: "Chaat & Snacks" },
+            { id: 7, name: "Pao Bhaji", price: 130, category: "Chaat & Snacks" },
+            { id: 8, name: "Samosa Choley Chaat", price: 105, category: "Chaat & Snacks" },
+            { id: 9, name: "Dahi Puri", price: 90, category: "Chaat & Snacks" },
+            
+            // Combos & Value Meals
+            { id: 10, name: "Paneer Chilly with Noodle", price: 250, category: "Combos" },
+            { id: 11, name: "Rajma + Rice + Chanch", price: 160, category: "Combos" },
+            { id: 12, name: "Chana + Rice / 1 Butter Naan", price: 175, category: "Combos" },
+            { id: 13, name: "Paneer Naan with Gravy + Cold Drink", price: 190, category: "Combos" },
+            { id: 14, name: "Dal Makhani + 1 Lachha Paratha", price: 170, category: "Combos" },
+            { id: 15, name: "Mini Pizza + Cold Drink", price: 100, category: "Combos" },
+
+            // North Indian & Paneer Special
+            { id: 16, name: "Paneer Tikka Butter Masala", price: 290, category: "Curries & Paneer" },
+            { id: 17, name: "Palak Paneer", price: 260, category: "Curries & Paneer" },
+            { id: 18, name: "Paneer Pasanda", price: 290, category: "Curries & Paneer" },
+            { id: 19, name: "Malai Kofta", price: 280, category: "Curries & Paneer" },
+            { id: 20, name: "Dal Makhani", price: 280, category: "Curries & Paneer" },
+            { id: 21, name: "Khoya Kaju Curry", price: 380, category: "Curries & Paneer" },
+            { id: 22, name: "Kadhai Mushroom", price: 280, category: "Curries & Paneer" },
+
+            // Tandoor Special
+            { id: 23, name: "Veg Seekh Kabab", price: 215, category: "Tandoor Starters" },
+            { id: 24, name: "Paneer Tikka", price: 240, category: "Tandoor Starters" },
+            { id: 25, name: "Paneer Malai Tikka", price: 250, category: "Tandoor Starters" },
+            { id: 26, name: "Malai Chaap", price: 195, category: "Tandoor Starters" },
+            { id: 27, name: "Tandoori Platter", price: 290, category: "Tandoor Starters" },
+
+            // South Indian (Southern Delight)
+            { id: 28, name: "Masala Dosa", price: 150, category: "South Indian" },
+            { id: 29, name: "Paneer Dosa", price: 170, category: "South Indian" },
+            { id: 30, name: "Rawa Masala Dosa", price: 160, category: "South Indian" },
+            { id: 31, name: "Idly Sambar", price: 115, category: "South Indian" },
+            { id: 32, name: "Spl Mix Uttapam", price: 175, category: "South Indian" },
+
+            // Chinese & Continental
+            { id: 33, name: "Hakka Noodles", price: 165, category: "Chinese" },
+            { id: 34, name: "Chilly Garlic Noodles", price: 155, category: "Chinese" },
+            { id: 35, name: "Veg Manchurian", price: 190, category: "Chinese" },
+            { id: 36, name: "Paneer Chilly", price: 250, category: "Chinese" },
+            { id: 37, name: "Veg Fried Rice", price: 155, category: "Chinese" },
+
+            // Beverages & Desserts
+            { id: 38, name: "Sweet Lassi", price: 70, category: "Beverages & Kulfi" },
+            { id: 39, name: "Cold Coffee with Ice Cream", price: 140, category: "Beverages & Kulfi" },
+            { id: 40, name: "Kesar Thandai", price: 85, category: "Beverages & Kulfi" },
+            { id: 41, name: "Stick Kesar Kulfi", price: 70, category: "Beverages & Kulfi" },
+            { id: 42, name: "Kulfi Faluda", price: 120, category: "Beverages & Kulfi" }
+        ];
+
+        let cart = [];
+        let activeCategory = "All";
+        let searchQuery = "";
+
+        const categories = ["All", "Chaat & Snacks", "Combos", "Curries & Paneer", "Tandoor Starters", "South Indian", "Chinese", "Beverages & Kulfi"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderCategoryPills();
+            renderMenuItems();
+        });
+
+        function renderCategoryPills() {
+            const container = document.getElementById('category-pills');
+            container.innerHTML = categories.map(cat => `
+                <button onclick="filterCategory('${cat}')" 
+                        class="px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition ${
+                            activeCategory === cat 
+                            ? 'bg-brand-red text-white shadow-md' 
+                            : 'bg-white text-gray-700 border border-gray-200 hover:border-brand-gold'
+                        }">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function renderMenuItems() {
+            const container = document.getElementById('menu-container');
+            const filtered = menuData.filter(item => {
+                const matchesCategory = activeCategory === "All" || item.category === activeCategory;
+                const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-gray-400">
+                        <i data-lucide="utensils" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+                        <p>No dishes found matching your search.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => `
+                <div class="bg-white rounded-2xl p-5 border border-amber-50 shadow-sm hover:shadow-md transition flex justify-between items-center group">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 border-2 border-emerald-600 flex items-center justify-center p-0.5">
+                                <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                            </span>
+                            <span class="text-xs font-semibold text-brand-gold uppercase tracking-wider">${item.category}</span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 group-hover:text-brand-red transition text-sm sm:text-base">${item.name}</h4>
+                        <p class="text-base font-black text-gray-800">₹${item.price}</p>
+                    </div>
+                    <button onclick="addToCart('${item.name}', ${item.price})" class="px-4 py-2 bg-red-50 group-hover:bg-brand-red group-hover:text-white text-brand-red font-bold rounded-xl text-xs transition flex items-center gap-1 shadow-xs">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add
+                    </button>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            renderCategoryPills();
+            renderMenuItems();
+        }
+
+        function handleMenuSearch() {
+            searchQuery = document.getElementById('menu-search').value;
+            renderMenuItems();
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartQty(name, change) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const counter = document.getElementById('cart-counter');
+            const totalQty = cart.reduce((acc, curr) => acc + curr.qty, 0);
+            counter.innerText = totalQty;
+
+            const cartList = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            if (cart.length === 0) {
+                cartList.innerHTML = `
+                    <div class="h-64 flex flex-col items-center justify-center text-center text-gray-400">
+                        <i data-lucide="shopping-basket" class="w-12 h-12 mb-2 stroke-1"></i>
+                        <p class="text-sm">Your order is currently empty</p>
+                    </div>
+                `;
+                subtotalEl.innerText = '₹0';
+                checkoutBtn.disabled = true;
+            } else {
+                let subtotal = 0;
+                cartList.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.qty;
+                    subtotal += itemTotal;
+                    return `
+                        <div class="flex items-center justify-between py-2.5 border-b border-gray-100">
+                            <div>
+                                <p class="text-xs font-bold text-gray-800">${item.name}</p>
+                                <p class="text-xs text-gray-400">₹${item.price} each</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                                    <button onclick="updateCartQty('${item.name}', -1)" class="px-2 py-1 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold text-xs">-</button>
+                                    <span class="px-2.5 text-xs font-bold">${item.qty}</span>
+                                    <button onclick="updateCartQty('${item.name}', 1)" class="px-2 py-1 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold text-xs">+</button>
+                                </div>
+                                <span class="text-xs font-black text-gray-800 w-12 text-right">₹${itemTotal}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                subtotalEl.innerText = `₹${subtotal}`;
+                checkoutBtn.disabled = false;
+            }
+
+            lucide.createIcons();
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+            drawer.classList.toggle('translate-x-full');
+            backdrop.classList.toggle('hidden');
+        }
+
+        // WhatsApp Order Dispatch to 9334110216
+        function submitOrderViaWhatsApp() {
+            if (cart.length === 0) return;
+
+            let subtotal = 0;
+            let message = `*NEW ORDER - HALDIRAM BHUJIAWALA (ANISABAD)*\n`;
+            message += `--------------------------------------\n`;
+            cart.forEach(item => {
+                const total = item.price * item.qty;
+                subtotal += total;
+                message += `• ${item.name} x ${item.qty} = ₹${total}\n`;
+            });
+            message += `--------------------------------------\n`;
+            message += `*Total Order Value: ₹${subtotal}*\n\n`;
+            message += `Please confirm my order and share preparation time.`;
+
+            const url = `https://wa.me/${RESTAURANT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // WhatsApp Catering Inquiry Dispatch to 9334110216
+        function handlePartyInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('party-name').value;
+            const phone = document.getElementById('party-phone').value;
+            const date = document.getElementById('party-date').value;
+            const guests = document.getElementById('party-guests').value;
+            const notes = document.getElementById('party-notes').value;
+
+            let message = `*BULK CATERING / PARTY INQUIRY (ANISABAD)*\n\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Customer Phone:* ${phone}\n`;
+            message += `*Event Date:* ${date}\n`;
+            message += `*Number of Guests:* ${guests}\n`;
+            if (notes) message += `*Notes/Menu:* ${notes}\n`;
+
+            const url = `https://wa.me/${RESTAURANT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
